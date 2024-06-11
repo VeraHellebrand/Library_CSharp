@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace CSharpLibrary;
 
-namespace CSharpLibrary
+public class FictionBook : Book
 {
-    public class FictionBook : Book
-    {
-        private string genre;
+	private string _genre;
 
-        public FictionBook(string title, string author, string ISBN, string genre) : base(title, author, ISBN)
-        {
-            this.genre = genre;
-        }
-        public string Genre { get => genre; set => genre = value; }
-        public override string ToString()
-        {
-            return $"Jméno knihy: {Title}, Autor: {Author}, ISBN: {ISBNNumber}, žánr: {Genre}";
-        }
-    }
+	public FictionBook(string title, Author author, string ISBN, string genre) : base(title, author, ISBN)
+	{
+		_genre = genre;
+	}
+
+	public override string ToString()
+	{
+		return base.ToString() + $", žánr: {_genre}";
+	}
 }
+

@@ -1,28 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace CSharpLibrary;
 
-namespace CSharpLibrary
+public class Loan
 {
-    internal class Loan
-    {
-        private Book book;
-        private Reader borrower;
+	public Book Book { get; private set; }
+	public Reader Borrower { get; private set; }
+	public DateTime LoanDate { get; private set; }
+	public DateTime? ReturnDate { get; private set; }
 
-        public Loan(Book book, Reader reader)
-        {
-            this.book = book;
-            this.borrower = reader;
-        }
+	public Loan(Book book, Reader borrower)
+	{
+		Book = book;
+		Borrower = borrower;
+		LoanDate = DateTime.Now;
+	}
 
-        public Book Book { get => book; }
-        public Reader Borrower { get => borrower; }
-        public override string ToString()
-        {
-            return $"{Borrower.FirstName} {Borrower.LastName} borrowed {Book.Title}";
-        }
-    }
+	public void ReturnBook()
+	{
+		ReturnDate = DateTime.Now;
+	}
+
+	public override string ToString()
+	{
+		return $"Pan/Pani {Borrower.FirstName} {Borrower.LastName} si vypůjčil(a) knihu {Book.Title} dne {LoanDate.ToShortDateString()}.";
+	}
 }
+

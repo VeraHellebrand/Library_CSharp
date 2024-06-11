@@ -1,32 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace CSharpLibrary;
 
-namespace CSharpLibrary
+public class Author
 {
-    internal class Author
-    {
-        private string firstName;
-        private string lastName;
-        private string dateOfBirth;
-        private string dateOfDeath;
-        public Author(string firstName, string lastName, string dateOfBirth, string dateOfDeath)
-        {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.dateOfBirth = dateOfBirth;
-            this.dateOfDeath = dateOfDeath;
-        }
-        public string FirstName { get => firstName; set => firstName = value; }
-        public string LastName { get => lastName; set => lastName = value; }
-        public string DateOfBirth { get => dateOfBirth; set => dateOfBirth = value; }
-        public string DateOfDeath { get => dateOfDeath; set => dateOfDeath = value;}
-        public override string ToString()
-        {
-            return $"Jméno: {firstName}, příjmení: {lastName}, datum narození: {dateOfBirth}, datum úmrtí: {dateOfDeath}";
-        }
-    }
+	public string FirstName { get; private set; }
+	public string LastName { get; private set; }
+	public string DateOfBirth { get; private set; }
+	public string DateOfDeath { get; private set; }
+
+	public Author(string firstName, string lastName, string dateOfBirth, string dateOfDeath)
+	{
+		FirstName = firstName;
+		LastName = lastName;
+		DateOfBirth = dateOfBirth;
+		DateOfDeath = dateOfDeath;
+	}
+
+	public override string ToString()
+	{
+		return $"Jméno: {FirstName}, příjmení: {LastName}, datum narození: {DateOfBirth}, datum úmrtí: {DateOfDeath}";
+	}
 }
+
 

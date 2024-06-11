@@ -1,23 +1,23 @@
-﻿using System;
+﻿namespace CSharpLibrary;
 
-namespace CSharpLibrary
+public abstract class Book
 {
-    public abstract class Book
-    {
-        private string title;
-        private string author;
-        private string ISBN;
+	public string Title { get; private set; }
+	public Author Author { get; private set; }
+	private string _ISBN;
 
-        protected Book(string title, string author, string ISBN)
-        {
-            this.title = title;
-            this.author = author;
-            this.ISBN = ISBN;
-        }
-        public string Title { get => title; set => title = value; }
-        public string Author { get => author; set => author = value; }
-        public string ISBNNumber { get => ISBN; set => ISBN = value; }
-    }
+	protected Book(string title, Author author, string ISBN)
+	{
+		Title = title;
+		Author = author;
+		_ISBN = ISBN;
+	}
+
+	public override string ToString()
+	{
+		return $"Jméno knihy: {Title}, Autor: {Author.FirstName} {Author.LastName}, ISBN: {_ISBN}";
+	}
 }
+
 
 
